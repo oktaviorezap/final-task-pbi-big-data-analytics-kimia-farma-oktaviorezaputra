@@ -1,4 +1,4 @@
-# Project-Based Internship by Rakamin Academy : PT. Kimia Farma
+# Project-Based Internship by Rakamin Academy : PT Kimia Farma, Tbk.
 As a Big Data Analyst Intern who has understood the sales data of sales data of every brand in Kimia Farma, I am asked to create a dashboard of the sales data of Salicyl Brand in one year from the raw data provided. 
 data that has been provided.
 
