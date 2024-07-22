@@ -1,4 +1,5 @@
-#call the database
+sql
+`#call the database
 use kimiafarma_db;
 
 #check dataset
@@ -71,4 +72,4 @@ from
     from pelanggan_ds) as pelanggan_ds 
     on cust_data.id_customer = pelanggan_ds.cust_id) as sales_tbl
     group by customer_name 
-	order by total_sales desc;
+	order by total_sales desc;`
