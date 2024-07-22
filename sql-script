@@ -1,0 +1,74 @@
+#call the database
+use kimiafarma_db;
+
+#check dataset
+select * from barang_ds;
+select * from pelanggan_ds;
+select * from penjualan;
+select * from penjualan_ds;
+
+#create table base penjualan
+select 
+tanggal,
+concat(id_invoice,'_',id_barang) as id_sales,
+id_customer,
+id_distributor,
+id_invoice,
+nama as customer_name,
+kota,
+customer_category,
+nama_barang,
+id_barang,
+jumlah_barang,
+unit, 
+harga as price
+from
+(select * from (with bds as 
+	(select kode_barang, nama_barang from barang_ds)
+	select * from penjualan_ds pds
+	left join bds
+	on bds.kode_barang = pds.id_barang) as cust_data
+    
+    left join(select id_customer as cust_id,nama, cabang_sales as kota, id_distributor, category as customer_category
+    from pelanggan_ds) as pelanggan_ds 
+    on cust_data.id_customer = pelanggan_ds.cust_id) as sales_tbl;
+    
+#create aggregate table (based on id_invoice and customer_name)
+select 
+id_invoice,
+nama as customer_name,
+sum(jumlah_barang) as qty_barang,
+sum(harga) as sum_price,
+sum(jumlah_barang * harga) as total_sales 
+from
+(select * from (with bds as 
+	(select kode_barang, nama_barang from barang_ds)
+	select * from penjualan_ds pds
+	left join bds
+	on bds.kode_barang = pds.id_barang) as cust_data
+    
+    left join(select id_customer as cust_id,nama, cabang_sales as kota, id_distributor, category as customer_category
+    from pelanggan_ds) as pelanggan_ds 
+    on cust_data.id_customer = pelanggan_ds.cust_id) as sales_tbl
+    group by id_invoice,customer_name
+    order by customer_name desc;    
+    
+#create aggregate table (based on customer_name)
+select
+nama as customer_name,
+sum(jumlah_barang) as qty_barang,
+sum(harga) as sum_price,
+sum(jumlah_barang * harga) as total_sales,
+kota
+from
+(select * from (with bds as 
+	(select kode_barang, nama_barang from barang_ds)
+	select * from penjualan_ds pds
+	left join bds
+	on bds.kode_barang = pds.id_barang) as cust_data
+    
+    left join(select id_customer as cust_id,nama, cabang_sales as kota, id_distributor, category as customer_category
+    from pelanggan_ds) as pelanggan_ds 
+    on cust_data.id_customer = pelanggan_ds.cust_id) as sales_tbl
+    group by customer_name 
+	order by total_sales desc;
