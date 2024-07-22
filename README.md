@@ -14,3 +14,6 @@ MySQL Script : [Salycil SQL Script](https://github.com/oktaviorezap/final-task-p
 
 # Dashboard
 Dashboard Link : [Kimia Farma - Salycil Sales Dashboard](https://lookerstudio.google.com/reporting/9811708a-b888-4774-95cf-0f5699c9fbc8)
+<br>
+<br>
+![Kimia_Farma_- _Salicyl_Sales_Dashboard_001](https://github.com/user-attachments/assets/c4cc258c-d631-4711-b243-6337b79b8d5a)
