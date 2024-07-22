@@ -1,5 +1,4 @@
-sql
-`#call the database
+#call the database
 use kimiafarma_db;
 
 #check dataset
