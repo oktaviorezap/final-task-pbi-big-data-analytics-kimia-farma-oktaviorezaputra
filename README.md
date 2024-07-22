@@ -8,6 +8,7 @@ Dataset Link : [Salycil Sales Dataset](https://rakamin-lms.s3.ap-southeast-1.ama
 # MySQL Script
 MySQL Script : [Salycil SQL Script](https://github.com/oktaviorezap/final-task-pbi-big-data-analytics-kimia-farma-oktaviorezaputra/blob/main/sql-script)
 <br>
+<br>
 ![image](https://github.com/user-attachments/assets/e8cae3d4-12ce-443f-b957-9e139b151670)
 
 
